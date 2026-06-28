@@ -1,0 +1,251 @@
+{
+    "$schema": "https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json",
+    "backend": {
+        "name": "github",
+        "repo": "abdullah-rajpoot01/welcome-real-estate"
+    },
+    "media_folder": "/public/media",
+    "public_folder": "/media",
+    "collections": [
+        {
+            "name": "leads",
+            "label": "Leads",
+            "label_singular": "Lead",
+            "folder": "content/leads",
+            "create": true,
+            "format": "json",
+            "extension": "json",
+            "slug": "{{fields.id}}",
+            "fields": [
+                {
+                    "name": "id",
+                    "widget": "hidden",
+                    "default": "{{uuid}}"
+                },
+                {
+                    "label": "Name",
+                    "name": "name",
+                    "widget": "string",
+                    "required": true
+                },
+                {
+                    "label": "Email",
+                    "name": "email",
+                    "widget": "string",
+                    "required": false,
+                    "pattern": [
+                        "^(?:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})?$",
+                        "Please enter a valid email address (e.g., name@example.com)"
+                    ]
+                },
+                {
+                    "label": "Mobile Numbers",
+                    "name": "mobiles",
+                    "widget": "list",
+                    "min": 1,
+                    "required": true,
+                    "field": {
+                        "label": "Mobile Number",
+                        "name": "number",
+                        "widget": "string",
+                        "pattern": [
+                            "^\\+?[0-9\\s\\-\\(\\)]{7,15}$",
+                            "Please enter a valid phone number (7 to 15 digits, digits and optionally +, -, spaces, or parentheses allowed)"
+                        ]
+                    }
+                },
+                {
+                    "label": "WhatsApp",
+                    "name": "whatsapp",
+                    "widget": "string",
+                    "required": false,
+                    "pattern": [
+                        "^(?:\\+?[0-9\\s\\-\\(\\)]{7,15})?$",
+                        "Please enter a valid WhatsApp number (7 to 15 digits) or leave it blank."
+                    ]
+                },
+                {
+                    "label": "Owner",
+                    "name": "owner",
+                    "widget": "string",
+                    "required": false,
+                    "pattern": [
+                        "^(?:.{5,30})?$",
+                        "Must be between 5 and 30 characters, or left completely blank"
+                    ]
+                },
+                {
+                    "label": "City",
+                    "name": "city",
+                    "widget": "select",
+                    "required": true,
+                    "options": [
+                        "multan",
+                        "lahore"
+                    ]
+                },
+                {
+                    "label": "Status",
+                    "name": "status",
+                    "widget": "select",
+                    "default": "new",
+                    "required": true,
+                    "options": [
+                        "new",
+                        "contacted",
+                        "qualified",
+                        "detail_shared",
+                        "interested",
+                        "no_answer",
+                        "busy",
+                        "call_back_later",
+                        "not_interested",
+                        "follow_up",
+                        "converted",
+                        "rejected",
+                        "lost"
+                    ]
+                },
+                {
+                    "label": "Source",
+                    "name": "source",
+                    "widget": "string",
+                    "required": true
+                },
+                {
+                    "label": "Priority",
+                    "name": "priority",
+                    "widget": "select",
+                    "default": "low",
+                    "required": true,
+                    "options": [
+                        "low",
+                        "medium",
+                        "high"
+                    ]
+                },
+                {
+                    "label": "Conversation Channel",
+                    "name": "conversationChannel",
+                    "widget": "string",
+                    "required": false
+                },
+                {
+                    "label": "SIM No",
+                    "name": "simNo",
+                    "widget": "select",
+                    "required": true,
+                    "options": [
+                        "SIM_1",
+                        "SIM_2",
+                        "SIM_3",
+                        "SIM_4",
+                        "SIM_5"
+                    ]
+                },
+                {
+                    "label": "Detail",
+                    "name": "detail",
+                    "widget": "object",
+                    "required": false,
+                    "fields": [
+                        {
+                            "label": "Address",
+                            "name": "address",
+                            "widget": "text",
+                            "required": false,
+                            "pattern": [
+                                "^(?:.{5,100})?$",
+                                "Must be between5 and 100 characters, or left completely blank"
+                            ]
+                        },
+                        {
+                            "label": "Google Map Pin URL",
+                            "name": "googleMapPinUrl",
+                            "widget": "string",
+                            "required": false,
+                            "pattern": [
+                                "^(https?:\\/\\/[^\\s/]+\\/.*)?$",
+                                "Please enter a valid URL starting with http:// or https://"
+                            ]
+                        },
+                        {
+                            "label": "Google Map Share Link",
+                            "name": "googleMapShareLink",
+                            "widget": "string",
+                            "required": false,
+                            "pattern": [
+                                "^(https?:\\/\\/[^\\s/]+\\/.*)?$",
+                                "Please enter a valid URL starting with http:// or https://"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Notes",
+                    "name": "notes",
+                    "widget": "list",
+                    "required": false,
+                    "fields": [
+                        {
+                            "label": "Text",
+                            "name": "text",
+                            "widget": "text",
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "label": "Follow Ups",
+                    "name": "followUps",
+                    "widget": "list",
+                    "required": false,
+                    "fields": [
+                        {
+                            "label": "Date",
+                            "name": "date",
+                            "widget": "datetime",
+                            "required": true
+                        },
+                        {
+                            "label": "Type",
+                            "name": "type",
+                            "widget": "string",
+                            "required": true
+                        },
+                        {
+                            "label": "Channel",
+                            "name": "channel",
+                            "widget": "string",
+                            "required": true
+                        },
+                        {
+                            "label": "Note",
+                            "name": "note",
+                            "widget": "text",
+                            "required": true
+                        },
+                        {
+                            "label": "Completed At",
+                            "name": "completedAt",
+                            "widget": "datetime",
+                            "required": false
+                        },
+                        {
+                            "label": "Status",
+                            "name": "status",
+                            "widget": "select",
+                            "default": "pending",
+                            "required": true,
+                            "options": [
+                                "pending",
+                                "completed",
+                                "missed"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

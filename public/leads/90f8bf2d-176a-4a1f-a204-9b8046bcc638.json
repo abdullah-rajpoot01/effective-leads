@@ -1,0 +1,23 @@
+{
+  "id": "90f8bf2d-176a-4a1f-a204-9b8046bcc638",
+  "name": "BodyTech",
+  "email": "burhanrao2005@gmail.com",
+  "mobiles": [
+    "03000404070"
+  ],
+  "whatsapp": "03000404070",
+  "owner": "",
+  "city": "multan",
+  "status": "new",
+  "source": "Google Map",
+  "priority": "low",
+  "conversationChannel": "Whatsapp",
+  "simNo": "SIM_1",
+  "detail": {
+    "address": "Gulgasht Ave، near Toys Mall, C Block Block C, Multan, 60000, Pakistan",
+    "googleMapPinUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27579.719530298797!2d71.45639973955079!3d30.223815199999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b33e3f67d4c01%3A0x1ec67370c5d60f23!2sBodyTech%20Gym%20%26%20Fitness%20Center%20Multan!5e0!3m2!1sen!2s!4v1782101587607!5m2!1sen!2s",
+    "googleMapShareLink": "https://maps.app.goo.gl/9sGoaN7cnoxdK48DA"
+  },
+  "notes": [],
+  "followUps": []
+}

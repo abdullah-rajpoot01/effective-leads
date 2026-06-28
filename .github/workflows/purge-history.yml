@@ -1,0 +1,33 @@
+name: Purge Git History
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs automatically every Sunday at midnight
+  workflow_dispatch:   # Allows you to trigger it manually via GitHub UI
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches full history so it can be wiped safely
+
+      - name: Reinitialise History
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # 1. Create a fresh branch with no history
+          git checkout --orphan temp_branch
+          
+          # 2. Add all current files from your CMS 
+          git add -A
+          git commit -m "Automated Cleanup: Rolling history reset"
+          
+          # 3. Overwrite the main branch with the clean one
+          git branch -D main
+          git branch -m main
+          
+          # 4. Force push the clean slate back to GitHub
+          git push origin main --force
